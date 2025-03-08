@@ -45,6 +45,21 @@
     .about-containers {
       margin-top: 0;
     }
+    
+    /* Theme toggle responsive styles */
+    .theme-toggle {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+    }
+    
+    .toggle-text {
+      display: none;
+    }
+    
+    .toggle-icon {
+      font-size: 1.4rem;
+      margin: 0;
+    }
   }
   
   @media screen and (max-width: 600px) {
@@ -99,6 +114,15 @@
     }
     .text-container {
       text-align: justify;
+    }
+    
+    /* Theme toggle responsive styles for very small screens */
+    .theme-toggle {
+      padding: 0.3rem;
+    }
+    
+    .theme-toggle-container.mobile {
+      margin-right: 0.5rem;
     }
   }
   

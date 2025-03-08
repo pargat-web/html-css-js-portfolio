@@ -7,8 +7,192 @@
   padding: 0;
 }
 
+/* Animation Classes */
+.content-fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.content-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slide-out {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slide-in {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-text-fade {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+/* Page Transition Classes */
+.page-transitioning {
+  overflow: hidden;
+}
+
+.section-fade-out {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section-fade-in {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Cyberpunk Animations */
+@keyframes neonPulse {
+  0% {
+    text-shadow: 0 0 2px var(--glow-color), 0 0 4px var(--glow-color), 0 0 6px var(--glow-color);
+  }
+  50% {
+    text-shadow: 0 0 3px var(--second-glow), 0 0 5px var(--second-glow), 0 0 7px var(--second-glow);
+  }
+  100% {
+    text-shadow: 0 0 2px var(--glow-color), 0 0 4px var(--glow-color), 0 0 6px var(--glow-color);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glitchEffect {
+  0% {
+    transform: translate(0);
+    text-shadow: 0 0 3px var(--glow-color);
+  }
+  5% {
+    transform: translate(-1px, 0.5px);
+    text-shadow: -0.5px 0 1px rgba(0, 209, 255, 0.5), 0.5px 0 1px rgba(25, 25, 112, 0.5);
+  }
+  10% {
+    transform: translate(0.5px, -1px);
+    text-shadow: 0.5px 0 1px rgba(127, 0, 255, 0.5), -0.5px 0 1px rgba(0, 209, 255, 0.5);
+  }
+  15% {
+    transform: translate(0);
+    text-shadow: 0 0 3px var(--glow-color);
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: 0 0 3px var(--glow-color);
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 10px var(--primary-color);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--accent-color);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--primary-color);
+  }
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Theme Variables */
+:root {
+  /* Web Mode (Default) */
+  --primary-color: #000000;
+  --secondary-color: #555555;
+  --background-color: #ffffff;
+  --accent-color: #e0e0e0;
+  --hover-color: grey;
+  --text-color: #000000;
+  --link-color: #000000;
+  --button-color: #ffffff;
+  --button-bg: #000000;
+  --button-hover-bg: #555555;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --transition-time: 0.5s;
+}
+
+/* Blockchain Mode - Dark Mode Blockchain Elegance */
+.blockchain-mode {
+  /* Primary colors */
+  --primary-color: #00D1FF;
+  --secondary-color: #7F00FF;
+  
+  /* Background and accents */
+  --background-color: #121212;
+  --accent-color: #191970;
+  
+  /* Text and interactive elements */
+  --hover-color: #4DEEEA;
+  --text-color: rgba(255, 255, 255, 0.9);
+  --link-color: #00D1FF;
+  
+  /* Buttons */
+  --button-color: #ffffff;
+  --button-bg: #00D1FF;
+  --button-hover-bg: #4DEEEA;
+  
+  /* Effects */
+  --shadow-color: rgba(0, 209, 255, 0.4);
+  --gradient-bg: linear-gradient(135deg, #121212 0%, #191970 40%, #7F00FF 70%, #00D1FF 100%);
+  --glow-color: #00D1FF;
+  --second-glow: #7F00FF;
+  --transition-time: 0.7s;
+}
+
 body {
   font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all var(--transition-time) ease;
+}
+
+/* Apply gradient background to blockchain mode */
+.blockchain-mode body {
+  background: var(--gradient-bg);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
 }
 
 html {
@@ -16,14 +200,16 @@ html {
 }
 
 p {
-  color: rgb(85, 85, 85);
+  color: var(--secondary-color);
+  transition: color var(--transition-time) ease;
 }
 
 /* TRANSITION */
 
 a,
-.btn {
-  transition: all 300ms ease;
+.btn,
+.theme-toggle {
+  transition: all var(--transition-time) ease;
 }
 
 /* DESKTOP NAV */
@@ -37,6 +223,20 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 17vh;
+  transition: all var(--transition-time) ease;
+}
+
+/* Additional Blockchain Mode styling */
+.blockchain-mode nav {
+  border-bottom: 1px solid var(--accent-color);
+  box-shadow: 0 2px 10px rgba(0, 209, 255, 0.2);
+  background: rgba(18, 18, 18, 0.9);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .nav-links {
@@ -46,24 +246,162 @@ nav {
 }
 
 a {
-  color: black;
+  color: var(--link-color);
   text-decoration: none;
-  text-decoration-color: white;
+  text-decoration-color: var(--background-color);
 }
 
 a:hover {
-  color: grey;
+  color: var(--hover-color);
   text-decoration: underline;
   text-underline-offset: 1rem;
-  text-decoration-color: rgb(181, 181, 181);
+  text-decoration-color: var(--accent-color);
+}
+
+/* Apply softened neon glow to titles in blockchain mode */
+.blockchain-mode .title,
+.blockchain-mode h2,
+.blockchain-mode h3 {
+  animation: neonPulse 4s infinite;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #00D1FF, #191970, #7F00FF);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+/* Add separate gradient animation for titles to avoid conflicting animations */
+.blockchain-mode .title {
+  animation: gradientShift 15s ease infinite;
+}
+
+.blockchain-mode h2,
+.blockchain-mode h3 {
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Soften link hover effects */
+.blockchain-mode a:hover {
+  text-shadow: 0 0 3px var(--hover-color);
+  color: var(--hover-color);
+}
+
+/* Soften logo text shadow */
+.blockchain-mode .logo {
+  text-shadow: 0 0 5px var(--primary-color);
+  letter-spacing: 0.5px;
+}
+
+/* Reduce intensity of button hover animation */
+.blockchain-mode .btn:hover {
+  animation: none;
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Reduce button glitch effect */
+.blockchain-mode .btn-color-1:hover {
+  animation: none;
+}
+
+/* Soften text shadow in service cards */
+.blockchain-mode .service-card h3 {
+  color: var(--primary-color);
+  text-shadow: 0 0 2px rgba(0, 209, 255, 0.3);
+}
+
+/* Soften text shadow in skill categories */
+.blockchain-mode .skill-category h2 {
+  color: var(--primary-color);
+  text-shadow: 0 0 2px rgba(0, 209, 255, 0.3);
+}
+
+/* Soften text shadow in testimonial author info */
+.blockchain-mode .author-info h3 {
+  color: var(--primary-color);
+  text-shadow: 0 0 2px rgba(0, 209, 255, 0.3);
+}
+
+/* Modify gradient animation to be gentler */
+@keyframes buttonGlitch {
+  0%, 100% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 3px var(--primary-color);
+  }
 }
 
 .logo {
   font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.blockchain-mode .logo {
+  text-shadow: 0 0 10px var(--primary-color);
+  letter-spacing: 1px;
 }
 
 .logo:hover {
   cursor: default;
+}
+
+/* THEME TOGGLE */
+
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 2rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--button-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.toggle-icon {
+  font-size: 1.2rem;
+}
+
+/* Blockchain Mode Toggle Styling */
+.blockchain-mode .theme-toggle {
+  background: linear-gradient(45deg, #191970, #7F00FF);
+  color: var(--button-color);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.3);
+}
+
+.blockchain-mode .theme-toggle:hover {
+  box-shadow: 0 0 15px var(--primary-color);
+  transform: translateY(-3px);
+  background: linear-gradient(45deg, #7F00FF, #00D1FF);
+}
+
+.nav-right-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle-container.mobile {
+  margin-right: 1rem;
 }
 
 /* HAMBURGER MENU */
@@ -150,14 +488,40 @@ a:hover {
 
 section {
   padding-top: 4vh;
-  height: 96vh;
+  padding-bottom: 10vh;
   margin: 0 10rem;
+  margin-bottom: 5rem;
   box-sizing: border-box;
   min-height: fit-content;
+  transition: all var(--transition-time) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.blockchain-mode section {
+  border-bottom: 1px solid var(--primary-color);
+  margin-bottom: 7rem;
 }
 
 .section-container {
   display: flex;
+}
+
+/* Blockchain Mode Section Container with improved contrast */
+.blockchain-mode .section-container {
+  background: rgba(18, 18, 18, 0.95);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+/* Enhanced blockchain mode container hover */
+.blockchain-mode .details-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px var(--primary-color);
+  transition: all 0.3s ease;
 }
 
 /* PROFILE SECTION */
@@ -166,7 +530,9 @@ section {
   display: flex;
   justify-content: center;
   gap: 5rem;
-  height: 80vh;
+  height: auto;
+  min-height: 80vh;
+  padding-bottom: 4rem;
 }
 
 .section__pic-container {
@@ -187,6 +553,9 @@ section {
 
 .section__text__p1 {
   text-align: center;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
 }
 
 .section__text__p2 {
@@ -197,6 +566,7 @@ section {
 .title {
   font-size: 3rem;
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 #socials-container {
@@ -223,10 +593,81 @@ section {
 
 .btn {
   font-weight: 600;
-  transition: all 300ms ease;
+  transition: all var(--transition-time) ease;
   padding: 1rem;
   width: 8rem;
   border-radius: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced blockchain mode button styling */
+.blockchain-mode .btn {
+  box-shadow: 0 0 10px var(--primary-color);
+  text-shadow: 0 0 5px var(--button-bg);
+  border: 1px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add glitch effect on hover for blockchain mode buttons */
+.blockchain-mode .btn:hover {
+  animation: buttonGlitch 2s infinite;
+}
+
+/* Button glitch effect */
+@keyframes buttonGlitch {
+  0%, 100% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 3px var(--primary-color);
+  }
+}
+
+.blockchain-mode .btn-color-1:hover {
+  animation: buttonGlitch 1.5s infinite;
+}
+
+/* Add a button pseudo-element for glow effect */
+.blockchain-mode .btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 153, 247, 0.3) 0%, rgba(0, 153, 247, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.blockchain-mode .btn:hover::before {
+  opacity: 1;
+}
+
+/* Additional scanline effect for blockchain mode */
+.blockchain-mode::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 153, 247, 0.02) 50%, rgba(0, 153, 247, 0.02));
+  background-size: 100% 4px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Enhanced blockchain Mode Links with glitch effect */
+.blockchain-mode a:hover {
+  color: var(--hover-color);
+  text-shadow: 0 0 3px var(--hover-color);
+  animation: buttonGlitch 2s infinite;
 }
 
 .btn-color-1,
@@ -257,6 +698,28 @@ section {
   border: rgb(255, 255, 255) 0.1rem solid;
 }
 
+.blockchain-mode .btn-color-1,
+.blockchain-mode .btn-color-2:hover {
+  background: var(--primary-color);
+  color: var(--button-color);
+  border-color: var(--primary-color);
+}
+
+.blockchain-mode .btn-color-1:hover {
+  background: var(--hover-color);
+  box-shadow: 0 0 20px var(--hover-color);
+  border-color: var(--hover-color);
+}
+
+.blockchain-mode .btn-color-2 {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.blockchain-mode .btn-color-2:hover {
+  border-color: var(--hover-color);
+}
+
 .btn-container {
   gap: 1rem;
 }
@@ -265,6 +728,9 @@ section {
 
 #about {
   position: relative;
+  padding-bottom: 8rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
 }
 
 .about-containers {
@@ -289,14 +755,17 @@ section {
 
 .arrow {
   position: absolute;
-  right: -5rem;
   bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: floatAnimation 2s infinite ease-in-out;
+  margin-top: 3rem;
 }
 
 .details-container {
   padding: 1.5rem;
-  flex: 1;
-  background: white;
+  margin: 1.5rem 0;
+  background-color: var(--background-color);
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
@@ -318,6 +787,9 @@ section {
 
 #experience {
   position: relative;
+  padding-bottom: 8rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
 }
 
 .experience-sub-title {
@@ -331,6 +803,68 @@ section {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.web-experience, .blockchain-experience {
+  width: 100%;
+  transition: all var(--transition-time) ease;
+}
+
+/* Enhanced experience container for blockchain mode */
+.blockchain-mode .web-experience,
+.blockchain-mode .blockchain-experience {
+  animation: floatAnimation 4s ease infinite;
+}
+
+.blockchain-mode .details-container {
+  border: 1px solid var(--primary-color);
+  background: rgba(18, 18, 18, 0.8);
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+.blockchain-mode .details-container:hover {
+  box-shadow: 0 0 15px var(--primary-color);
+  border-color: var(--secondary-color);
+}
+
+/* Experience section animations */
+@keyframes experienceSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.web-experience.active,
+.blockchain-experience.active {
+  animation: experienceSlideIn 0.8s ease forwards;
+}
+
+/* Experience title glow effect for blockchain mode */
+.blockchain-mode .experience-sub-title {
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--primary-color);
+  letter-spacing: 1px;
+}
+
+/* Experience skill items for blockchain mode */
+.blockchain-mode .article-container article {
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 153, 247, 0.2);
+  transition: all 0.3s ease;
+}
+
+.blockchain-mode .article-container article:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px var(--primary-color);
 }
 
 .article-container {
@@ -340,6 +874,7 @@ section {
   flex-direction: row;
   gap: 2.5rem;
   justify-content: space-around;
+  padding: 2rem;
 }
 
 article {
@@ -357,11 +892,38 @@ article .icon {
 
 #projects {
   position: relative;
+  padding-bottom: 8rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+/* Project description styles */
+.project-description {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  line-height: 1.4;
+  transition: color 0.5s ease;
 }
 
 .color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
+  border-color: var(--accent-color);
+  background: var(--background-color);
+  margin: 2rem 0;
+}
+
+.blockchain-mode .color-container {
+  border: 2px solid var(--primary-color);
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 209, 255, 0.3);
+  transition: all 0.5s ease;
+}
+
+.blockchain-mode .color-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
 .project-img {
@@ -383,10 +945,39 @@ article .icon {
 /* CONTACT */
 
 #contact {
+  position: relative;
+  padding-bottom: 8rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-cta {
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+  margin: 2rem auto;
+  line-height: 1.6;
+}
+
+.contact-btn-container {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  height: 70vh;
+  margin: 2.5rem 0;
+}
+
+.contact-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.blockchain-mode .contact-info-upper-container {
+  box-shadow: 0 0 15px var(--primary-color);
+  animation: borderGlow 4s infinite;
+  background: rgba(18, 14, 67, 0.7);
+  backdrop-filter: blur(5px);
 }
 
 .contact-info-upper-container {
@@ -395,7 +986,7 @@ article .icon {
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
-  background: (250, 250, 250);
+  background: (--background-color);
   margin: 2rem auto;
   padding: 0.5rem;
 }
@@ -406,6 +997,7 @@ article .icon {
   justify-content: center;
   gap: 0.5rem;
   margin: 1rem;
+  padding: 1rem;
 }
 
 .contact-info-container p {
@@ -427,6 +1019,511 @@ footer {
   margin: 0 1rem;
 }
 
+.blockchain-mode footer {
+  text-shadow: 0 0 5px var(--primary-color);
+  background: rgba(18, 18, 18, 0.9);
+  border-top: 1px solid var(--accent-color);
+}
+
 footer p {
   text-align: center;
+}
+
+/* Enhancement for title elements in blockchain mode */
+.blockchain-mode .title {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--hover-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 8s ease infinite;
+  text-shadow: 0 2px 10px rgba(0, 153, 247, 0.5);
+  letter-spacing: 2px;
+}
+
+/* Project title effect for blockchain mode */
+.blockchain-mode .project-title {
+  color: var(--primary-color);
+  position: relative;
+}
+
+.blockchain-mode .project-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+  transform: scaleX(0.5);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.blockchain-mode .project-title:hover::after {
+  transform: scaleX(1);
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+}
+
+/* Contact button enhancement for blockchain mode */
+.blockchain-mode .contact-btn {
+  display: none;
+}
+
+.blockchain-mode .contact-btn-container {
+  display: none;
+}
+
+/* SERVICES */
+
+#services {
+  position: relative;
+  padding: 2rem;
+  padding-bottom: 8rem;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  padding-bottom: 2rem;
+}
+
+.web-services, .blockchain-services {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+}
+
+.service-card {
+  background-color: var(--background-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  padding: 2rem;
+  width: 300px;
+  transition: all 0.4s ease;
+  margin: 1.5rem;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.service-card p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+/* Blockchain Mode Service Card Styling */
+.blockchain-mode .service-card {
+  background: rgba(18, 18, 18, 0.8);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 5px 15px rgba(0, 209, 255, 0.2);
+}
+
+.blockchain-mode .service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px var(--primary-color);
+  border-color: var(--secondary-color);
+}
+
+.blockchain-mode .service-card h3 {
+  color: var(--primary-color);
+  text-shadow: 0 0 2px rgba(0, 209, 255, 0.3);
+}
+
+.blockchain-mode .service-icon {
+  text-shadow: 0 0 20px var(--primary-color);
+  animation: floatAnimation 3s ease infinite;
+}
+
+/* SKILLS */
+
+#skills {
+  position: relative;
+  padding: 2rem;
+  padding-bottom: 8rem;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  padding-bottom: 2rem;
+}
+
+.web-skills, .blockchain-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+}
+
+.skill-category {
+  background-color: var(--background-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  padding: 2.5rem;
+  min-width: 400px;
+  transition: all 0.4s ease;
+  margin: 1.5rem;
+}
+
+.skill-category h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.skill-item {
+  margin-bottom: 1.5rem;
+}
+
+.skill-name {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  color: var(--text-color);
+}
+
+.skill-bar {
+  height: 10px;
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  transition: width 1.5s ease;
+}
+
+/* Blockchain Mode Skills Styling */
+.blockchain-mode .skill-category {
+  background: rgba(18, 18, 18, 0.8);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 5px 15px rgba(0, 209, 255, 0.2);
+}
+
+.blockchain-mode .skill-category:hover {
+  box-shadow: 0 10px 25px var(--primary-color);
+  border-color: var(--secondary-color);
+}
+
+.blockchain-mode .skill-category h2 {
+  color: var(--primary-color);
+  text-shadow: 0 0 2px rgba(0, 209, 255, 0.3);
+}
+
+.blockchain-mode .skill-bar {
+  background-color: rgba(25, 25, 112, 0.3);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.blockchain-mode .skill-progress {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  animation: gradientShift 5s ease infinite;
+  background-size: 200% 100%;
+}
+
+/* TESTIMONIALS */
+
+#testimonials {
+  position: relative;
+  padding: 2rem;
+  padding-bottom: 8rem;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  padding-bottom: 2rem;
+}
+
+.web-testimonials, .blockchain-testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+}
+
+.testimonial-card {
+  background-color: var(--background-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  padding: 2.5rem;
+  width: 400px;
+  transition: all 0.4s ease;
+  margin: 1.5rem;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.testimonial-content {
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-content p {
+  font-style: italic;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.testimonial-content p::before,
+.testimonial-content p::after {
+  content: '"';
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  position: absolute;
+}
+
+.testimonial-content p::before {
+  left: -5px;
+  top: -5px;
+}
+
+.testimonial-content p::after {
+  right: -5px;
+  bottom: -15px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--accent-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.author-placeholder {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.author-info {
+  text-align: left;
+}
+
+.author-info h3 {
+  margin-bottom: 0.25rem;
+  color: var(--primary-color);
+}
+
+.author-info p {
+  font-size: 0.8rem;
+}
+
+/* Blockchain Mode Testimonials Styling */
+.blockchain-mode .testimonial-card {
+  background: rgba(18, 18, 18, 0.8);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 5px 15px rgba(0, 209, 255, 0.2);
+}
+
+.blockchain-mode .testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px var(--primary-color);
+  border-color: var(--secondary-color);
+}
+
+.blockchain-mode .testimonial-content p::before,
+.blockchain-mode .testimonial-content p::after {
+  color: var(--primary-color);
+  text-shadow: 0 0 5px var(--primary-color);
+}
+
+.blockchain-mode .author-image {
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  border: 2px solid var(--primary-color);
+}
+
+.blockchain-mode .author-placeholder {
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.blockchain-mode .author-info h3 {
+  color: var(--primary-color);
+  text-shadow: 0 0 2px rgba(0, 209, 255, 0.3);
+}
+
+/* Responsive padding for mobile */
+@media screen and (max-width: 1200px) {
+  section {
+    margin: 0 5rem;
+    margin-bottom: 5rem;
+    padding-bottom: 8rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    margin: 0 2rem;
+    margin-bottom: 5rem;
+    padding-bottom: 8rem;
+  }
+  
+  .skill-category,
+  .testimonial-card {
+    min-width: auto;
+    width: 90%;
+  }
+}
+
+/* Text color and shadow for blockchain mode paragraphs */
+.blockchain-mode p {
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: none;
+}
+
+/* Project description text in blockchain mode */
+.blockchain-mode .project-description {
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: none;
+}
+
+/* Contact CTA text in blockchain mode */
+.blockchain-mode .contact-cta {
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: none;
+}
+
+/* Article paragraph text in blockchain mode */
+.blockchain-mode article p {
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: none;
+}
+
+/* Add solid background to blockchain mode containers for better contrast */
+.blockchain-mode .details-container {
+  background: rgba(18, 18, 18, 0.9);
+}
+
+.blockchain-mode .color-container {
+  background: rgba(18, 18, 18, 0.9);
+}
+
+.blockchain-mode .service-card {
+  background: rgba(18, 18, 18, 0.9);
+}
+
+.blockchain-mode .skill-category {
+  background: rgba(18, 18, 18, 0.9);
+}
+
+.blockchain-mode .testimonial-card {
+  background: rgba(18, 18, 18, 0.9);
+}
+
+/* More visible skill name and progress text */
+.blockchain-mode .skill-name {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Project title with improved legibility */
+.blockchain-mode .project-title {
+  color: var(--primary-color);
+  text-shadow: 0 0 2px rgba(0, 209, 255, 0.3);
+}
+
+/* Testimonial text with improved legibility */
+.blockchain-mode .testimonial-content p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Section title improvements */
+.blockchain-mode .title {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-shadow: 0 0 3px rgba(0, 209, 255, 0.3);
+}
+
+/* Other blockchain mode buttons */
+.blockchain-mode .btn-color-1,
+.blockchain-mode .btn-color-2 {
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  border: 1px solid var(--primary-color);
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.3);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.blockchain-mode .btn-color-1:hover,
+.blockchain-mode .btn-color-2:hover {
+  box-shadow: 0 0 15px var(--primary-color);
+  transform: translateY(-3px);
+  background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+}
+
+/* Blockchain mode contact info container */
+.blockchain-mode .contact-info-container {
+  background: rgba(18, 18, 18, 0.8);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 209, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+.blockchain-mode .contact-info-container:hover {
+  box-shadow: 0 0 15px var(--primary-color);
+  transform: translateY(-3px);
+  border-color: var(--secondary-color);
+}
+
+/* Hide all blockchain contact button styles */
+.blockchain-mode .contact-btn,
+.blockchain-mode .contact-btn-container,
+.blockchain-mode .contact-btn::before,
+.blockchain-mode .contact-btn::after,
+.blockchain-mode .contact-btn-container::before {
+  display: none !important;
 }

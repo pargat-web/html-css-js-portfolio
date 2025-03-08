@@ -13,28 +13,48 @@
 <body>
   <nav id="desktop-nav">
     <div class="logo">PARGAT SINGH</div>
-    <div>
+    <div class="nav-container">
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="theme-toggle-container">
+        <button id="desktop-theme-toggle" class="theme-toggle" onclick="toggleTheme()">
+          <span class="toggle-text">Blockchain Mode</span>
+          <span class="toggle-icon">🔄</span>
+        </button>
+      </div>
     </div>
   </nav>
   <nav id="hamburger-nav">
     <div class="logo">Pargat Singh</div>
-    <div class="hamburger-menu">
-      <div class="hamburger-icon" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="nav-right-container">
+      <div class="theme-toggle-container mobile">
+        <button id="mobile-theme-toggle" class="theme-toggle" onclick="toggleTheme()">
+          <span class="toggle-text">Blockchain Mode</span>
+          <span class="toggle-icon">🔄</span>
+        </button>
       </div>
-      <div class="menu-links">
-        <li><a href="#about" onclick="toggleMenu()">About</a></li>
-        <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="#testimonials" onclick="toggleMenu()">Testimonials</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
       </div>
     </div>
   </nav>
@@ -98,126 +118,130 @@
     <h1 class="title">Experience</h1>
     <div class="experience-details-container">
       <div class="about-containers">
-        <div class="details-container">
-          <h2 class="experience-sub-title">Web Development</h2>
-          <div class="article-container">
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>HTML</h3>
-                <p>Experienced</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>CSS</h3>
-                <p>Intermediate</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>JavaScript</h3>
-                <p>Experienced</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>React JS</h3>
-                <p>Experienced</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Node JS</h3>
-                <p>Experienced</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>TypeScript</h3>
-                <p>Basic</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Express JS</h3>
-                <p>Experienced</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Git</h3>
-                <p>Intermediate</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>MySQL</h3>
-                <p>Experienced</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>MongoDB</h3>
-                <p>Intermediate</p>
-              </div>
-            </article>
+        <div class="web-experience">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Web Development</h2>
+            <div class="article-container">
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>HTML</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>CSS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>JavaScript</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>React JS</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Node JS</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>TypeScript</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Express JS</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Git</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>MySQL</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>MongoDB</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
-        <div class="details-container">
-          <h2 class="experience-sub-title">Blockchain Development</h2>
-          <div class="article-container">
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Solidity</h3>
-                <p>Intermediate</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Hardhat</h3>
-                <p>Intermediate</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Ether JS</h3>
-                <p>Intermediate</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Ethereum</h3>
-                <p>Intermediate</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Truffle</h3>
-                <p>Intermediate</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Ganache</h3>
-                <p>Intermediate</p>
-              </div>
-            </article>
+        <div class="blockchain-experience" style="display: none;">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Blockchain Development</h2>
+            <div class="article-container">
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Solidity</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Hardhat</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Ether JS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Ethereum</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Truffle</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+                <div>
+                  <h3>Ganache</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </div>
@@ -233,7 +257,8 @@
           <div class="article-container">
             <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
           </div>
-          <h2 class="experience-sub-title project-title">Project One</h2>
+          <h2 class="experience-sub-title project-title">Portfolio Website</h2>
+          <p class="project-description">A fully responsive single-page portfolio built with React, TypeScript, and Redux for state management.</p>
           <div class="btn-container">
             <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
               Github
@@ -247,7 +272,8 @@
           <div class="article-container">
             <img src="./assets/project-2.png" alt="Project 2" class="project-img" />
           </div>
-          <h2 class="experience-sub-title project-title">Project Two</h2>
+          <h2 class="experience-sub-title project-title">Task Management App</h2>
+          <p class="project-description">A full-stack task management system with Node.js, Express, and PostgreSQL, featuring user authentication and task tracking.</p>
           <div class="btn-container">
             <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
               Github
@@ -261,7 +287,8 @@
           <div class="article-container">
             <img src="./assets/project-3.png" alt="Project 3" class="project-img" />
           </div>
-          <h2 class="experience-sub-title project-title">Project Three</h2>
+          <h2 class="experience-sub-title project-title">E-Commerce Platform</h2>
+          <p class="project-description">An online store built with React, Firebase, and Stripe integration for payments.</p>
           <div class="btn-container">
             <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
               Github
@@ -273,11 +300,243 @@
         </div>
       </div>
     </div>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#services'" />
+  </section>
+  
+  <section id="services">
+    <p class="section__text__p1">What I Offer</p>
+    <h1 class="title">My Services</h1>
+    <div class="services-container">
+      <div class="web-services">
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3>Web Development</h3>
+          <p>Custom responsive websites and web applications with modern UI/UX, built using React, Node.js, and other cutting-edge technologies.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3>Full Stack Applications</h3>
+          <p>End-to-end solutions including frontend interfaces, backend systems, database design, and API development.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔄</div>
+          <h3>API Integration</h3>
+          <p>Seamless integration with third-party APIs and services to enhance your application's functionality.</p>
+        </div>
+      </div>
+      <div class="blockchain-services" style="display: none;">
+        <div class="service-card">
+          <div class="service-icon">⛓️</div>
+          <h3>Smart Contract Development</h3>
+          <p>Custom smart contracts written in Solidity for Ethereum and EVM-compatible blockchains, with security best practices.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔐</div>
+          <h3>DApp Development</h3>
+          <p>Full-stack decentralized applications with blockchain integration, wallet connections, and web3 functionality.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🪙</div>
+          <h3>Token & NFT Solutions</h3>
+          <p>ERC-20 token creation, NFT marketplace development, and custom tokenomics implementation.</p>
+        </div>
+      </div>
+    </div>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#skills'" />
+  </section>
+  
+  <section id="skills">
+    <p class="section__text__p1">My Technical</p>
+    <h1 class="title">Skills</h1>
+    <div class="skills-container">
+      <div class="web-skills">
+        <div class="skill-category">
+          <h2>Frontend Development</h2>
+          <div class="skill-item">
+            <span class="skill-name">HTML & CSS</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">JavaScript</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">React</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">TypeScript</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h2>Backend Development</h2>
+          <div class="skill-item">
+            <span class="skill-name">Node.js</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 88%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Express.js</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">MongoDB</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">MySQL</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="blockchain-skills" style="display: none;">
+        <div class="skill-category">
+          <h2>Blockchain Development</h2>
+          <div class="skill-item">
+            <span class="skill-name">Solidity</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Ethereum</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Web3.js/Ethers.js</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 78%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Hardhat/Truffle</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h2>Smart Contract Security</h2>
+          <div class="skill-item">
+            <span class="skill-name">Security Auditing</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 70%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Gas Optimization</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">DeFi Protocols</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 65%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Testing</span>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#testimonials'" />
+  </section>
+  
+  <section id="testimonials">
+    <p class="section__text__p1">Client</p>
+    <h1 class="title">Testimonials</h1>
+    <div class="testimonials-container">
+      <div class="web-testimonials">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Pargat developed an incredible website for our business that helped us increase our online presence and customer engagement. His attention to detail and responsiveness made the project a success."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <div class="author-placeholder">JD</div>
+            </div>
+            <div class="author-info">
+              <h3>John Doe</h3>
+              <p>CEO, Tech Solutions Inc.</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"We hired Pargat to develop our e-commerce platform, and he delivered beyond our expectations. The website is fast, user-friendly, and has significantly increased our online sales."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <div class="author-placeholder">JS</div>
+            </div>
+            <div class="author-info">
+              <h3>Jane Smith</h3>
+              <p>Founder, Boutique Fashions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="blockchain-testimonials" style="display: none;">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Pargat developed a custom smart contract for our tokenized real estate platform. His knowledge of blockchain technology and secure coding practices made our project a success in the competitive DeFi space."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <div class="author-placeholder">RB</div>
+            </div>
+            <div class="author-info">
+              <h3>Robert Block</h3>
+              <p>CTO, ChainEstate</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Our NFT marketplace needed complex smart contract functionality, and Pargat delivered a secure and efficient solution. His expertise in Solidity and frontend integration was outstanding."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <div class="author-placeholder">EW</div>
+            </div>
+            <div class="author-info">
+              <h3>Elena Web3</h3>
+              <p>Founder, ArtChain Gallery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
   </section>
+  
   <section id="contact">
     <p class="section__text__p1">Get in Touch</p>
     <h1 class="title">Contact Me</h1>
+    <p class="contact-cta">Need a skilled web developer? Whether you're looking for a custom website, full-stack application, or API development, I'm here to help. Let's build something amazing together!</p>
     <div class="contact-info-upper-container">
       <div class="contact-info-container">
         <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
@@ -296,6 +555,9 @@
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
