@@ -1527,3 +1527,154 @@ footer p {
 .blockchain-mode .contact-btn-container::before {
   display: none !important;
 }
+
+/* BLOG SECTION */
+
+#blog {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-align: center;
+}
+
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.web-blogs, .blockchain-blogs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.blog-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.blog-img-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-img {
+  transform: scale(1.05);
+}
+
+.blog-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: rgb(85, 85, 85);
+  font-weight: 600;
+}
+
+.blog-date {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.blog-excerpt {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.blog-read-more {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: rgb(53, 53, 53);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.blog-read-more:hover {
+  background-color: black;
+}
+
+/* Blockchain Mode Blog Styles */
+.blockchain-mode .blog-card {
+  background-color: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  box-shadow: 0 0 15px rgba(0, 255, 170, 0.1);
+}
+
+.blockchain-mode .blog-card:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
+  transform: translateY(-5px);
+}
+
+.blockchain-mode .blog-title {
+  color: #00ffaa;
+  text-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
+}
+
+.blockchain-mode .blog-date {
+  color: #888;
+}
+
+.blockchain-mode .blog-excerpt {
+  color: #ccc;
+}
+
+.blockchain-mode .blog-read-more {
+  background-color: transparent;
+  border: 1px solid #00ffaa;
+  color: #00ffaa;
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.2);
+}
+
+.blockchain-mode .blog-read-more:hover {
+  background-color: rgba(0, 255, 170, 0.1);
+  box-shadow: 0 0 15px rgba(0, 255, 170, 0.4);
+}
+
+@media screen and (max-width: 1200px) {
+  section {
+    margin: 0 5rem;
+    margin-bottom: 5rem;
+    padding-bottom: 8rem;
+  }
+}

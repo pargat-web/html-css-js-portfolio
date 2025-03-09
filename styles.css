@@ -1,0 +1,51 @@
+.navbar {
+    background-color: #333; /* Dark background */
+    padding: 10px 20px; /* Padding for spacing */
+    animation: slideIn 0.5s ease; /* Slide-in effect */
+}
+
+.navbar a {
+    color: #fff; /* White text */
+    text-decoration: none; /* Remove underline */
+    padding: 14px 20px; /* Padding for clickable area */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.navbar a:hover {
+    background-color: #555; /* Darker background on hover */
+    color: #ffcc00; /* Gold text on hover */
+    border-radius: 5px; /* Rounded corners */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Pulse effect on hover */
+.navbar a:hover {
+    animation: pulse 0.5s infinite; /* Pulse animation */
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%); /* Start from the left */
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        transform: translateX(0); /* End at original position */
+        opacity: 1; /* End visible */
+    }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1); /* Normal size */
+    }
+    50% {
+        transform: scale(1.1); /* Slightly larger */
+    }
+}
+
+/* Additional styles for icons if used */
+.navbar a i {
+    margin-right: 8px; /* Space between icon and text */
+} 

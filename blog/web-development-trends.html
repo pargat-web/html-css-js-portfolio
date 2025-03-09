@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Web Development Trends in 2023 - Pargat Singh</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../mediaqueries.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .blog-post-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .blog-post-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .blog-post-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .blog-post-meta {
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    
+    .blog-post-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+    
+    .blog-post-content {
+      line-height: 1.8;
+    }
+    
+    .blog-post-content h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    
+    .blog-post-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .blog-post-content ul {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+    
+    .blog-post-content li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .back-to-blog {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      background-color: rgb(53, 53, 53);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+    
+    .back-to-blog:hover {
+      background-color: black;
+    }
+    
+    .blockchain-mode .blog-post-title {
+      color: #00ffaa;
+      text-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
+    }
+    
+    .blockchain-mode .blog-post-content h2 {
+      color: #00ffaa;
+    }
+    
+    .blockchain-mode .back-to-blog {
+      background-color: transparent;
+      border: 1px solid #00ffaa;
+      color: #00ffaa;
+      box-shadow: 0 0 10px rgba(0, 255, 170, 0.2);
+    }
+    
+    .blockchain-mode .back-to-blog:hover {
+      background-color: rgba(0, 255, 170, 0.1);
+      box-shadow: 0 0 15px rgba(0, 255, 170, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="desktop-nav">
+    <div class="logo">PARGAT SINGH</div>
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../index.html#about"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="../index.html#services"><i class="fas fa-briefcase"></i> Services</a></li>
+        <li><a href="../index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+      <div class="theme-toggle-container">
+        <button id="desktop-theme-toggle" class="theme-toggle" onclick="toggleTheme()">
+          <span class="toggle-text">Blockchain Mode</span>
+          <span class="toggle-icon">🔄</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <nav id="hamburger-nav">
+    <div class="logo">Pargat Singh</div>
+    <div class="nav-right-container">
+      <div class="theme-toggle-container mobile">
+        <button id="mobile-theme-toggle" class="theme-toggle" onclick="toggleTheme()">
+          <span class="toggle-text">Blockchain Mode</span>
+          <span class="toggle-icon">🔄</span>
+        </button>
+      </div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="../index.html" onclick="toggleMenu()">Home</a></li>
+          <li><a href="../index.html#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="../index.html#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="../index.html#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="../index.html#services" onclick="toggleMenu()">Services</a></li>
+          <li><a href="../index.html#skills" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="../index.html#testimonials" onclick="toggleMenu()">Testimonials</a></li>
+          <li><a href="../index.html#blog" onclick="toggleMenu()">Blog</a></li>
+          <li><a href="../index.html#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="blog-post-container">
+    <div class="blog-post-header">
+      <h1 class="blog-post-title">Modern Web Development Trends in 2023</h1>
+      <p class="blog-post-meta">June 15, 2023 | By Pargat Singh</p>
+    </div>
+    
+    <img src="../assets/blog/blog-web-1.png" alt="Modern Web Development" class="blog-post-image">
+    
+    <div class="blog-post-content">
+      <p>The web development landscape is constantly evolving, with new frameworks, tools, and methodologies emerging regularly. As we navigate through 2023, several key trends are shaping how developers build and deploy web applications. In this article, I'll explore the most significant trends that are transforming the industry.</p>
+      
+      <h2>1. The Rise of Jamstack Architecture</h2>
+      <p>Jamstack (JavaScript, APIs, and Markup) continues to gain popularity due to its focus on performance, security, and developer experience. By pre-rendering pages and serving them directly from a CDN, Jamstack sites deliver exceptional speed and reliability.</p>
+      <p>Key benefits of Jamstack include:</p>
+      <ul>
+        <li>Improved performance through pre-rendering and CDN distribution</li>
+        <li>Enhanced security with reduced attack surfaces</li>
+        <li>Better developer experience with clear separation of concerns</li>
+        <li>Scalability without the complexity of traditional server architectures</li>
+      </ul>
+      <p>Frameworks like Next.js, Gatsby, and Astro are leading this revolution, providing powerful tools for building Jamstack sites with minimal configuration.</p>
+      
+      <h2>2. Web Components and Micro-Frontends</h2>
+      <p>As applications grow in complexity, developers are increasingly turning to component-based architectures. Web Components, a set of standardized browser APIs, allow for the creation of reusable, encapsulated UI elements that work across frameworks.</p>
+      <p>Micro-frontends extend this concept to the application level, enabling teams to develop, test, and deploy portions of a frontend independently. This approach is particularly valuable for large organizations with multiple teams working on different parts of the same application.</p>
+      
+      <h2>3. Serverless and Edge Computing</h2>
+      <p>Serverless architectures continue to transform how we build and deploy backend services. By abstracting away infrastructure management, serverless allows developers to focus solely on writing code that responds to events.</p>
+      <p>Edge computing takes this a step further by running code closer to users, reducing latency and improving performance. Services like Cloudflare Workers, Vercel Edge Functions, and Netlify Edge Functions are making it easier than ever to deploy code globally with minimal configuration.</p>
+      
+      <h2>4. Improved Developer Experience (DX)</h2>
+      <p>Tools that enhance developer productivity are becoming increasingly sophisticated. From AI-powered code completion to integrated development environments that streamline workflows, the focus on developer experience is stronger than ever.</p>
+      <p>Some notable improvements include:</p>
+      <ul>
+        <li>AI-assisted coding with tools like GitHub Copilot</li>
+        <li>Integrated testing and debugging environments</li>
+        <li>Hot module replacement for instant feedback during development</li>
+        <li>Improved type checking with TypeScript and similar tools</li>
+      </ul>
+      
+      <h2>5. Progressive Web Apps (PWAs) and Mobile-First Design</h2>
+      <p>Progressive Web Apps continue to bridge the gap between web and native applications. With features like offline functionality, push notifications, and home screen installation, PWAs offer a native-like experience without requiring users to visit an app store.</p>
+      <p>Mobile-first design remains crucial, with more users accessing the web through mobile devices than desktop computers. Responsive design is no longer optional but a fundamental requirement for modern web applications.</p>
+      
+      <h2>Conclusion</h2>
+      <p>The web development landscape in 2023 is characterized by a focus on performance, developer experience, and user-centric design. By embracing these trends, developers can create faster, more reliable, and more engaging web applications that meet the needs of today's users.</p>
+      <p>As we look to the future, it's clear that the pace of innovation in web development shows no signs of slowing down. Staying informed about these trends and continuously learning new skills will be essential for developers who want to remain competitive in this rapidly evolving field.</p>
+    </div>
+    
+    <a href="../index.html#blog" class="back-to-blog">← Back to Blog</a>
+  </div>
+  
+  <footer>
+    <p>Copyright &#169; 2023 Pargat Singh. All Rights Reserved.</p>
+  </footer>
+  
+  <script src="../script.js"></script>
+</body>
+
+</html> 

@@ -60,6 +60,22 @@
       font-size: 1.4rem;
       margin: 0;
     }
+    
+    .web-blogs, .blockchain-blogs {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .web-blogs, .blockchain-blogs {
+      grid-template-columns: 1fr;
+      padding: 0 1rem;
+    }
+    
+    .blog-card {
+      max-width: 500px;
+      margin: 0 auto;
+    }
   }
   
   @media screen and (max-width: 600px) {
@@ -123,6 +139,18 @@
     
     .theme-toggle-container.mobile {
       margin-right: 0.5rem;
+    }
+    
+    .blog-img-container {
+      height: 180px;
+    }
+    
+    .blog-title {
+      font-size: 1.1rem;
+    }
+    
+    .blog-excerpt {
+      font-size: 0.9rem;
     }
   }
   

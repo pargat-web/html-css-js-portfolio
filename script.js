@@ -38,7 +38,8 @@ const contentData = {
     experience: "web", // Indicates which experience section to show
     services: "web", // Indicates which services section to show
     skills: "web", // Indicates which skills section to show
-    testimonials: "web" // Indicates which testimonials section to show
+    testimonials: "web", // Indicates which testimonials section to show
+    blogs: "web" // Indicates which blogs section to show
   },
   blockchain: {
     projects: [
@@ -51,27 +52,28 @@ const contentData = {
       },
       {
         title: "NFT Marketplace",
-        description: "A fully functional NFT marketplace that enables minting, buying, and selling NFTs using Solidity and IPFS.",
+        description: "A platform for minting, buying, and selling NFTs with MetaMask integration and IPFS storage.",
         image: "./assets/project-2.png",
         github: "https://github.com/",
         demo: "https://github.com/"
       },
       {
-        title: "DeFi Staking Platform",
-        description: "A DeFi application that allows users to stake tokens and earn rewards, built with Solidity and Web3.js.",
+        title: "DeFi Yield Farming Platform",
+        description: "A yield farming application with liquidity pools, staking, and reward distribution mechanisms.",
         image: "./assets/project-3.png",
         github: "https://github.com/",
         demo: "https://github.com/"
       }
     ],
-    about: "I'm a blockchain developer with expertise in Solidity, Hardhat, and smart contract development. I build decentralized applications (DApps) and DeFi solutions that run on Ethereum and other EVM-compatible blockchains. My work includes NFT marketplaces, DeFi staking platforms, and blockchain-powered voting systems.",
+    about: "I'm a blockchain developer with expertise in Solidity, Web3.js, and decentralized application architecture. I specialize in creating secure smart contracts, NFT platforms, and DeFi solutions. My focus is on building transparent, trustless systems that leverage the power of blockchain technology.",
     contact: {
-      ctaText: "Want to develop a secure and scalable blockchain application? Whether it's smart contracts, DeFi, or NFT projects, I can bring your vision to life. Let's innovate together in Web3!"
+      ctaText: "Looking for a blockchain developer? Whether you need smart contract development, DApp creation, or blockchain integration, I can help bring your decentralized vision to life. Let's revolutionize together!"
     },
     experience: "blockchain", // Indicates which experience section to show
     services: "blockchain", // Indicates which services section to show
     skills: "blockchain", // Indicates which skills section to show
-    testimonials: "blockchain" // Indicates which testimonials section to show
+    testimonials: "blockchain", // Indicates which testimonials section to show
+    blogs: "blockchain" // Indicates which blogs section to show
   }
 };
 
@@ -132,6 +134,9 @@ function updateContent(isBlockchainMode) {
   
   // Update testimonials section
   updateTestimonialsSection(content.testimonials);
+  
+  // Update blogs section
+  updateBlogsSection(content.blogs);
 }
 
 // Update projects section with animation
@@ -514,12 +519,72 @@ function setupTestimonialsSections() {
   }
 }
 
+// Update blogs section
+function updateBlogsSection(blogsType) {
+  const webBlogs = document.querySelector('.web-blogs');
+  const blockchainBlogs = document.querySelector('.blockchain-blogs');
+  
+  if (!webBlogs || !blockchainBlogs) return;
+  
+  // Add fade-out animation
+  webBlogs.classList.add('fade-out');
+  blockchainBlogs.classList.add('fade-out');
+  
+  setTimeout(() => {
+    // Hide both blogs
+    webBlogs.style.display = 'none';
+    blockchainBlogs.style.display = 'none';
+    
+    // Show the appropriate blogs based on the type
+    if (blogsType === 'web') {
+      webBlogs.style.display = 'grid';
+    } else if (blogsType === 'blockchain') {
+      blockchainBlogs.style.display = 'grid';
+    }
+    
+    // Add fade-in animation
+    webBlogs.classList.remove('fade-out');
+    blockchainBlogs.classList.remove('fade-out');
+    webBlogs.classList.add('fade-in');
+    blockchainBlogs.classList.add('fade-in');
+    
+    // Remove animation classes after animation completes
+    setTimeout(() => {
+      webBlogs.classList.remove('fade-in');
+      blockchainBlogs.classList.remove('fade-in');
+    }, 800);
+  }, 500);
+}
+
+// Setup blogs sections if needed
+function setupBlogsSections() {
+  const blogContainer = document.querySelector('.blog-container');
+  if (!blogContainer) return;
+  
+  const webBlogs = blogContainer.querySelector('.web-blogs');
+  const blockchainBlogs = blogContainer.querySelector('.blockchain-blogs');
+  
+  if (!webBlogs) {
+    const newWebBlogs = document.createElement('div');
+    newWebBlogs.className = 'web-blogs';
+    blogContainer.appendChild(newWebBlogs);
+  }
+  
+  if (!blockchainBlogs) {
+    const newBlockchainBlogs = document.createElement('div');
+    newBlockchainBlogs.className = 'blockchain-blogs';
+    newBlockchainBlogs.style.display = 'none';
+    blogContainer.appendChild(newBlockchainBlogs);
+  }
+}
+
 // Call setup functions on page load
 function init() {
   setupExperienceSections();
   setupServicesSections();
   setupSkillsSections();
   setupTestimonialsSections();
+  setupBlogsSections();
 }
 
 // Toggle theme between Web Mode and Blockchain Mode

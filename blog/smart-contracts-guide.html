@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding Smart Contracts: A Developer's Guide - Pargat Singh</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../mediaqueries.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .blog-post-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .blog-post-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .blog-post-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .blog-post-meta {
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    
+    .blog-post-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+    
+    .blog-post-content {
+      line-height: 1.8;
+    }
+    
+    .blog-post-content h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    
+    .blog-post-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .blog-post-content ul {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+    
+    .blog-post-content li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .blog-post-content pre {
+      background-color: #f5f5f5;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+    
+    .blog-post-content code {
+      font-family: monospace;
+    }
+    
+    .back-to-blog {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      background-color: rgb(53, 53, 53);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+    
+    .back-to-blog:hover {
+      background-color: black;
+    }
+    
+    .blockchain-mode .blog-post-title {
+      color: #00ffaa;
+      text-shadow: 0 0 5px rgba(0, 255, 170, 0.5);
+    }
+    
+    .blockchain-mode .blog-post-content h2 {
+      color: #00ffaa;
+    }
+    
+    .blockchain-mode .blog-post-content pre {
+      background-color: #0a0a0a;
+      border: 1px solid #2a2a2a;
+      color: #00ffaa;
+    }
+    
+    .blockchain-mode .back-to-blog {
+      background-color: transparent;
+      border: 1px solid #00ffaa;
+      color: #00ffaa;
+      box-shadow: 0 0 10px rgba(0, 255, 170, 0.2);
+    }
+    
+    .blockchain-mode .back-to-blog:hover {
+      background-color: rgba(0, 255, 170, 0.1);
+      box-shadow: 0 0 15px rgba(0, 255, 170, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="desktop-nav">
+    <div class="logo">PARGAT SINGH</div>
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../index.html#about"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="../index.html#services"><i class="fas fa-briefcase"></i> Services</a></li>
+        <li><a href="../index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+      <div class="theme-toggle-container">
+        <button id="desktop-theme-toggle" class="theme-toggle" onclick="toggleTheme()">
+          <span class="toggle-text">Blockchain Mode</span>
+          <span class="toggle-icon">🔄</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <nav id="hamburger-nav">
+    <div class="logo">Pargat Singh</div>
+    <div class="nav-right-container">
+      <div class="theme-toggle-container mobile">
+        <button id="mobile-theme-toggle" class="theme-toggle" onclick="toggleTheme()">
+          <span class="toggle-text">Blockchain Mode</span>
+          <span class="toggle-icon">🔄</span>
+        </button>
+      </div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="../index.html" onclick="toggleMenu()">Home</a></li>
+          <li><a href="../index.html#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="../index.html#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="../index.html#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="../index.html#services" onclick="toggleMenu()">Services</a></li>
+          <li><a href="../index.html#skills" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="../index.html#testimonials" onclick="toggleMenu()">Testimonials</a></li>
+          <li><a href="../index.html#blog" onclick="toggleMenu()">Blog</a></li>
+          <li><a href="../index.html#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="blog-post-container">
+    <div class="blog-post-header">
+      <h1 class="blog-post-title">Understanding Smart Contracts: A Developer's Guide</h1>
+      <p class="blog-post-meta">May 5, 2023 | By Pargat Singh</p>
+    </div>
+    
+    <img src="../assets/blog/blog-blockchain-1.png" alt="Smart Contracts" class="blog-post-image">
+    
+    <div class="blog-post-content">
+      <p>Smart contracts are self-executing contracts with the terms of the agreement directly written into code. They run on blockchain networks, primarily Ethereum, and automatically execute when predetermined conditions are met. In this guide, I'll walk through the fundamentals of smart contracts, their key features, and best practices for development.</p>
+      
+      <h2>What Are Smart Contracts?</h2>
+      <p>At their core, smart contracts are programs stored on a blockchain that run when predetermined conditions are met. They typically are used to automate the execution of an agreement so that all participants can be immediately certain of the outcome, without any intermediary's involvement or time loss.</p>
+      <p>Smart contracts can:</p>
+      <ul>
+        <li>Automate transactions and processes</li>
+        <li>Eliminate the need for trusted intermediaries</li>
+        <li>Reduce costs by removing middlemen</li>
+        <li>Increase transparency as all participants can view the contract</li>
+        <li>Ensure immutability once deployed</li>
+      </ul>
+      
+      <h2>Solidity: The Language of Ethereum Smart Contracts</h2>
+      <p>Solidity is the primary programming language for writing smart contracts on Ethereum. It's a statically-typed language designed to target the Ethereum Virtual Machine (EVM).</p>
+      <p>Here's a simple example of a Solidity smart contract:</p>
+      <pre><code>// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract SimpleStorage {
+    uint256 private storedData;
+    
+    function set(uint256 x) public {
+        storedData = x;
+    }
+    
+    function get() public view returns (uint256) {
+        return storedData;
+    }
+}</code></pre>
+      <p>This contract allows anyone to store a single number and retrieve it later. While simple, it demonstrates the basic structure of a Solidity contract.</p>
+      
+      <h2>Key Concepts in Smart Contract Development</h2>
+      
+      <h2>1. Gas and Optimization</h2>
+      <p>Every operation in a smart contract costs "gas," which translates to real money paid by users. Optimizing your contracts to use less gas is crucial for user adoption.</p>
+      <p>Common gas optimization techniques include:</p>
+      <ul>
+        <li>Using appropriate data types (uint8 vs uint256 when appropriate)</li>
+        <li>Minimizing storage operations</li>
+        <li>Avoiding loops with unbounded iterations</li>
+        <li>Using libraries for common functions</li>
+      </ul>
+      
+      <h2>2. Security Considerations</h2>
+      <p>Smart contracts often handle valuable assets, making them attractive targets for attackers. Common vulnerabilities include:</p>
+      <ul>
+        <li>Reentrancy attacks</li>
+        <li>Integer overflow/underflow</li>
+        <li>Timestamp dependence</li>
+        <li>Front-running</li>
+        <li>Access control issues</li>
+      </ul>
+      <p>Always use established security patterns and consider having your contracts audited by professionals before deploying them with significant value.</p>
+      
+      <h2>3. Testing and Deployment</h2>
+      <p>Thorough testing is essential before deploying any smart contract. Development frameworks like Hardhat and Truffle provide tools for writing and running tests.</p>
+      <p>A typical testing workflow includes:</p>
+      <ul>
+        <li>Unit tests for individual functions</li>
+        <li>Integration tests for contract interactions</li>
+        <li>Testing on local development networks</li>
+        <li>Testing on public testnets (Goerli, Sepolia)</li>
+        <li>Mainnet deployment only after extensive testing</li>
+      </ul>
+      
+      <h2>4. Upgradeability Patterns</h2>
+      <p>Smart contracts are immutable by default, but there are patterns to make them upgradeable:</p>
+      <ul>
+        <li>Proxy patterns</li>
+        <li>Data separation</li>
+        <li>Diamond pattern (EIP-2535)</li>
+      </ul>
+      <p>Each approach has trade-offs between complexity, gas costs, and security.</p>
+      
+      <h2>Real-World Applications</h2>
+      <p>Smart contracts power a wide range of applications:</p>
+      <ul>
+        <li>Decentralized Finance (DeFi) protocols</li>
+        <li>Non-Fungible Tokens (NFTs)</li>
+        <li>Decentralized Autonomous Organizations (DAOs)</li>
+        <li>Supply chain tracking</li>
+        <li>Voting systems</li>
+        <li>Insurance claims processing</li>
+      </ul>
+      
+      <h2>Conclusion</h2>
+      <p>Smart contracts represent a powerful paradigm shift in how we create and execute agreements. As a developer entering this space, focus on security, gas optimization, and thorough testing. The field is rapidly evolving, so staying current with best practices and new developments is essential.</p>
+      <p>Remember that while smart contracts can automate trust, they're only as good as the code they contain. A well-designed smart contract can provide security, efficiency, and transparency, but poorly written ones can lead to significant losses. Take the time to learn the fundamentals thoroughly before deploying contracts that handle real value.</p>
+    </div>
+    
+    <a href="../index.html#blog" class="back-to-blog">← Back to Blog</a>
+  </div>
+  
+  <footer>
+    <p>Copyright &#169; 2023 Pargat Singh. All Rights Reserved.</p>
+  </footer>
+  
+  <script src="../script.js"></script>
+</body>
+
+</html> 
